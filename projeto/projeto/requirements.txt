@@ -1,0 +1,14 @@
+bcrypt
+fastapi==0.104.1
+passlib
+psycopg2
+sqlalchemy
+sqlalchemy-utils
+pydantic==2.4.2
+python-jose
+python-multipart
+uvicorn==0.24.0
+pika
+sqlalchemy-utils
+logger
+

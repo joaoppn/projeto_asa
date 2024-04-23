@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+data:
+  POSTGRES_HOST: '172.17.0.2'
+  POSTGRES_USER: postgres
+  POSTGRES_PASS: postgres
+  POSTGRES_DATABASE: imprimirme
+  POSTGRES_DRIVERNAME: postgresql+psycopg2
+  POSTGRES_PORT: '5432'
+
+
+
+#   url = URL.create(
+#     drivername="postgresql+psycopg2",
+#     username="postgres",
+#     password="postgres",
+#     host="172.31.0.217",
+#     database="imprimirme",
+#     port=5432,
+# )

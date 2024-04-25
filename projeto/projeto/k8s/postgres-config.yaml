@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DB_HOST: "db" # Name of the PostgreSQL service (you'll define this later)
+  DB_USER: "postgres"  # PostgreSQL username
+  DB_PASSWORD: "postgres"  # PostgreSQL password
+  DB_HOST: "db"  # PostgreSQL database name
+  DB_PORT: "5432"

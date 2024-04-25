@@ -55,7 +55,7 @@ class AirportCrud:
         for airport in aeroportos_destino:
             voo_count = (
                 self.db_session.query(Voo)
-                .filter(Voo.origin_city == origem, Voo.destination_city == airport.city)
+                .filter(Voo.origin_city == origem)
                 .count()
             )
             if voo_count > 0:

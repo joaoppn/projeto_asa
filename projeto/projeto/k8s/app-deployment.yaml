@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app
+spec:
+  replicas: 1  # Number of replicas for FastAPI backend pods
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: joaoppn/image-app:latest # 
+          ports:
+            - containerPort: 8000  # Port for FastAPI application
+          envFrom:
+            - configMapRef:
+                name: app-config  # ConfigMap for environment variables
+          resources:
+            limits:
+              cpu: 100m  # Resource limits for CPU and memory
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi

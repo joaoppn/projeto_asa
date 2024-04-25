@@ -70,7 +70,7 @@ async def login_for_access_token(form_data: TokenData):
 async def cadastrar_usuario(usuario: UsuarioModel):
     return usuario_crud.cadastrar_usuario(usuario)
 
-@app.get("/usuario/{id_usuario}", response_model=UsuarioModel, tags=["Usuário"])
+@app.get("/usuario", response_model=UsuarioModel, tags=["Usuário"])
 async def get_usuario(id_usuario: int):
     return usuario_crud.get_usuario(id_usuario)
 
@@ -80,15 +80,15 @@ async def get_usuario(id_usuario: int):
 async def cadastrar_voo(voo: VooModel):
     return voo_crud.cadastrar_voo(voo)
 
-@app.get("/voo/{id_voo}", response_model=VooModel, tags=["Voo"])
+@app.get("/voo", response_model=VooModel, tags=["Voo"])
 async def get_voo(id_voo: int):
     return voo_crud.get_voo(id_voo)
 
-@app.get("/voo/data/{data}",  response_model=list[VooModel], tags=["Voo"])
+@app.get("/voo/data",  response_model=list[VooModel], tags=["Voo"])
 async def listar_voos_data(data: str):
     return voo_crud.listar_voos_data(data)
 
-@app.get("/voo/busca/{seats}/{date}/{origin}/{destination}", response_model=list[VooModel], tags=["Voo"])
+@app.get("/voo/busca/", response_model=list[VooModel], tags=["Voo"])
 async def get_flights_by_price_and_availability(seats: str, date: str="Any", origin:str="Any", destination:str="Any"):
     return voo_crud.get_flights_by_price_and_availability(seats, date, origin, destination)
 
@@ -98,7 +98,7 @@ async def get_flights_by_price_and_availability(seats: str, date: str="Any", ori
 async def cadastrar_aeroporto(aerporto: AirportModel):
     return airport_crud.cadastrar_airport(aerporto)
 
-@app.get("/aeroporto/origem/{origem}", response_model=list[AirportModel], tags = ["Airport"])
+@app.get("/aeroporto/origem", response_model=list[AirportModel], tags = ["Airport"])
 async def listar_aerportos_destino(origem: str):
     return airport_crud.listar_aerportos_destino(origem)
 

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  replicas: 1  # One replica for the PostgreSQL database pod
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: db
+          image: postgres:14.0  # PostgreSQL Docker image (you can choose a different version)
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: postgres  # Set the same password as in app-config.yaml
+            - DB_USER=postgres
+            - DB_PASSWORD=postgres
+            - DB_HOST=db
+            - DB_NAME=db
+            - DB_PORT=5432
+      
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
